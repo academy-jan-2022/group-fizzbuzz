@@ -12,4 +12,11 @@ public class FizzBuzzShould {
 		var result = fizzBuzz.get(1);
 		assertEquals("1", result);
 	}
+
+	@Test public void
+	return_fizz_when_multiple_of_three() {
+		var fizzBuzz = new FizzBuzz();
+		var result = fizzBuzz.get(3);
+		assertEquals("Fizz", result);
+	}
 }
