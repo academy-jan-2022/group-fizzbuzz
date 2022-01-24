@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class FizzBuzzShould {
 
     public static final String FIZZ = "Fizz";
+    public static final String BUZZ = "Buzz";
     private FizzBuzz fizzBuzz;
 
     @BeforeEach
@@ -32,6 +33,13 @@ class FizzBuzzShould {
     }
 
     @ParameterizedTest
+    @MethodSource("buzz_cases")
+    void return_buzz_as_a_string_if_multiple_of_3(int input, String expected) {
+        var result = fizzBuzz.get(input);
+        assertEquals(expected, result);
+    }
+
+    @ParameterizedTest
     @MethodSource("non_fizz_buzz_cases")
     void
     return_input_as_a_string_if_not_a_multiple_of_3_or_5(int input, String expected) {
@@ -39,31 +47,20 @@ class FizzBuzzShould {
         assertEquals(expected, result);
     }
 
-    @Test
-    void
-    return_buzz_when_5_given() {
-        var result = fizzBuzz.get(5);
-        assertEquals("Buzz", result);
-    }
-    @Test
-    void
-    return_buzz_when_10_given() {
-        var result = fizzBuzz.get(10);
-        assertEquals("Buzz", result);
-    }
-
-    @Test
-    void
-    return_buzz_when_20_given() {
-        var result = fizzBuzz.get(20);
-        assertEquals("Buzz", result);
-    }
-
     private static Stream<Arguments> fizz_cases() {
         return Stream.of(
                 Arguments.of(3, FIZZ),
                 Arguments.of(6, FIZZ),
                 Arguments.of(9, FIZZ)
+        );
+
+    }
+
+    private static Stream<Arguments> buzz_cases() {
+        return Stream.of(
+                Arguments.of(5, BUZZ),
+                Arguments.of(10, BUZZ),
+                Arguments.of(20, BUZZ)
         );
 
     }
