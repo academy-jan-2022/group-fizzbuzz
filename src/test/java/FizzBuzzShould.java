@@ -26,6 +26,13 @@ public class FizzBuzzShould {
 		assertEquals("Fizz", result);
 	}
 
+	@Test public void
+	return_fizz_when_9_is_given() {
+		var fizzBuzz = new FizzBuzz();
+		var result = fizzBuzz.get(9);
+		assertEquals("Fizz", result);
+	}
+
 	@ParameterizedTest
 	@MethodSource("x") public void
 	return_input_as_a_string_if_not_a_multiple_of_3_or_5(int input, String expected)
