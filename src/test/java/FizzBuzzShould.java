@@ -28,9 +28,16 @@ public class FizzBuzzShould {
 	}
 
 	@Test public void
-	return_fizz_when_multiple_of_three() {
+	return_fizz_when_3_is_given() {
 		var fizzBuzz = new FizzBuzz();
 		var result = fizzBuzz.get(3);
+		assertEquals("Fizz", result);
+	}
+
+	@Test public void
+	return_fizz_when_6_is_given() {
+		var fizzBuzz = new FizzBuzz();
+		var result = fizzBuzz.get(6);
 		assertEquals("Fizz", result);
 	}
 }
