@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * of both three and five print "fizzbuzz.example.FizzBuzz".*/
 class FizzBuzzShould {
 
+    public static final String FIZZ = "Fizz";
     private FizzBuzz fizzBuzz;
 
     @BeforeEach
@@ -47,9 +48,9 @@ class FizzBuzzShould {
 
     public static Stream<Arguments> fizz_cases() {
         return Stream.of(
-                Arguments.of(3, "Fizz"),
-                Arguments.of(6, "Fizz"),
-                Arguments.of(9, "Fizz")
+                Arguments.of(3, FIZZ),
+                Arguments.of(6, FIZZ),
+                Arguments.of(9, FIZZ)
         );
 
     }
