@@ -7,10 +7,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 * of both three and five print "FizzBuzz".*/
 public class FizzBuzzShould {
 	@Test public void
-	return_a_number_when_is_not_multiple_of_three_or_five() {
+	return_a_1_when_1_is_given() {
 		var fizzBuzz = new FizzBuzz();
 		var result = fizzBuzz.get(1);
 		assertEquals("1", result);
+	}
+
+	@Test public void
+	return_a_2_when_2_is_given() {
+		var fizzBuzz = new FizzBuzz();
+		var result = fizzBuzz.get(2);
+		assertEquals("2", result);
 	}
 
 	@Test public void
