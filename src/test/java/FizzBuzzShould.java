@@ -1,4 +1,10 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
@@ -6,27 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 * instead of the number and for the multiples of five print "Buzz". For numbers which are multiples
 * of both three and five print "FizzBuzz".*/
 public class FizzBuzzShould {
-	@Test public void
-	return_a_1_when_1_is_given() {
-		var fizzBuzz = new FizzBuzz();
-		var result = fizzBuzz.get(1);
-		assertEquals("1", result);
-	}
-
-	@Test public void
-	return_a_2_when_2_is_given() {
-		var fizzBuzz = new FizzBuzz();
-		var result = fizzBuzz.get(2);
-		assertEquals("2", result);
-	}
-
-	@Test public void
-	return_4_when_4_is_given() {
-		var fizzBuzz = new FizzBuzz();
-		var result = fizzBuzz.get(4);
-		assertEquals("4", result);
-	}
-
 	@Test public void
 	return_fizz_when_3_is_given() {
 		var fizzBuzz = new FizzBuzz();
@@ -39,5 +24,22 @@ public class FizzBuzzShould {
 		var fizzBuzz = new FizzBuzz();
 		var result = fizzBuzz.get(6);
 		assertEquals("Fizz", result);
+	}
+
+	@ParameterizedTest
+	@MethodSource("x") public void
+	return_input_as_a_string_if_not_a_multiple_of_3_or_5(int input, String expected)
+	{
+		var fizzBuzz = new FizzBuzz();
+		var result = fizzBuzz.get(input);
+		assertEquals(expected, result);
+	}
+
+	private static Stream<Arguments> x() {
+		return Stream.of(
+				Arguments.of(1, "1"),
+				Arguments.of(2, "2"),
+				Arguments.of(4, "4")
+		);
 	}
 }
