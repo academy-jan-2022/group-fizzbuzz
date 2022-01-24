@@ -52,7 +52,14 @@ class FizzBuzzShould {
         assertEquals("Buzz", result);
     }
 
-    public static Stream<Arguments> fizz_cases() {
+    @Test
+    void
+    return_buzz_when_20_given() {
+        var result = fizzBuzz.get(20);
+        assertEquals("Buzz", result);
+    }
+
+    private static Stream<Arguments> fizz_cases() {
         return Stream.of(
                 Arguments.of(3, FIZZ),
                 Arguments.of(6, FIZZ),
