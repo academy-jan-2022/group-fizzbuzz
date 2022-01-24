@@ -23,25 +23,11 @@ class FizzBuzzShould {
         fizzBuzz = new FizzBuzz();
     }
 
-    @Test
-    void
-    return_fizz_when_3_is_given() {
-        var result = fizzBuzz.get(3);
-        assertEquals("Fizz", result);
-    }
-
-    @Test
-    void
-    return_fizz_when_6_is_given() {
-        var result = fizzBuzz.get(6);
-        assertEquals("Fizz", result);
-    }
-
-    @Test
-    void
-    return_fizz_when_9_is_given() {
-        var result = fizzBuzz.get(9);
-        assertEquals("Fizz", result);
+    @ParameterizedTest
+    @MethodSource("fizz_cases")
+    void return_fizz_as_a_string_if_multiple_of_3(int input, String expected) {
+        var result = fizzBuzz.get(input);
+        assertEquals(expected, result);
     }
 
     @ParameterizedTest
@@ -57,6 +43,15 @@ class FizzBuzzShould {
     return_buzz_when_5_given() {
         var result = fizzBuzz.get(5);
         assertEquals("Buzz", result);
+    }
+
+    public static Stream<Arguments> fizz_cases() {
+        return Stream.of(
+                Arguments.of(3, "Fizz"),
+                Arguments.of(6, "Fizz"),
+                Arguments.of(9, "Fizz")
+        );
+
     }
 
     private static Stream<Arguments> non_fizz_buzz_cases() {
