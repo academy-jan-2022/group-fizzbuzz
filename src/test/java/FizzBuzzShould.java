@@ -42,6 +42,13 @@ public class FizzBuzzShould {
 		assertEquals(expected, result);
 	}
 
+	@Test public void
+	return_buzz_when_5_given(){
+		var fizzBuzz = new FizzBuzz();
+		var result = fizzBuzz.get(5);
+		assertEquals("Buzz", result);
+	}
+
 	private static Stream<Arguments> x() {
 		return Stream.of(
 				Arguments.of(1, "1"),
