@@ -21,6 +21,13 @@ public class FizzBuzzShould {
 	}
 
 	@Test public void
+	return_4_when_4_is_given() {
+		var fizzBuzz = new FizzBuzz();
+		var result = fizzBuzz.get(4);
+		assertEquals("4", result);
+	}
+
+	@Test public void
 	return_fizz_when_multiple_of_three() {
 		var fizzBuzz = new FizzBuzz();
 		var result = fizzBuzz.get(3);
